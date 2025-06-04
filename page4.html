@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Additional Info</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #f3faff, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem 3rem;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding-top: 3rem;
+    }
+
+    .sidebar button {
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: white;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    .sidebar button:hover {
+      background: #f0faff;
+    }
+
+    .logout-btn {
+      background-color: #ffe6e6;
+      font-weight: bold;
+    }
+
+    .content {
+      flex: 1;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timer-box {
+      background: #fff;
+      border: 2px dashed #aad8ff;
+      border-radius: 15px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .timer-box h2 {
+      font-size: 1.5rem;
+      color: #3a6ea5;
+      margin-bottom: 1rem;
+    }
+
+    #timer {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 2rem;
+        height: auto;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 0;
+      }
+
+      .sidebar button {
+        font-size: 0.95rem;
+      }
+
+      .content {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <button onclick="window.location.href='profile.html'">Profile</button>
+      <button onclick="window.location.href='wishes.html'">Wishes</button>
+      <button>Additional</button>
+      <button class="logout-btn" onclick="window.location.href='index.html'">Log Out</button>
+    </div>
+    <div class="content">
+      <div class="timer-box">
+        <h2>Time since we started dating 💕</h2>
+        <div id="timer">Loading... 💗</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const startDate = new Date(2023, 1, 14); // 14 Feb 2023
+      const timerElement = document.getElementById('timer');
+
+      function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        if (diff < 0) {
+          timerElement.textContent = "Start date is in the future 💔";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        timerElement.innerHTML = `
+          ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💗`;
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    });
+  </script>
+</body>
+</html>

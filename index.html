@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #d8e9f0, #ffffff);
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      flex-wrap: wrap;
+      background: url('wallpaper.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .left {
+      flex: 1;
+      min-width: 250px;
+      padding: 1rem;
+    }
+
+    .greeting-box {
+      background: url('greeting-bg.jpg') no-repeat center;
+      background-size: cover;
+      border-radius: 16px;
+      padding: 2rem;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .greeting-box h1 {
+      font-size: 3rem;
+      margin: 0 0 1rem;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #f0f0f0;
+    }
+
+    .center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      padding: 1rem;
+    }
+
+    .right {
+      flex: 1;
+      text-align: right;
+      min-width: 250px;
+      padding: 1rem;
+    }
+
+    .right p {
+      margin: 0.5rem 0;
+      color: #f0f0f0;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #e3f1ff;
+      border: 2px solid #aaa;
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d0eaff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .right {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="greeting-box">
+        <h1>Hello, Aziz!</h1>
+        <p class="description">
+          ☁ The sky is softly cloudy today, with a gentle breeze caressing your heart.<br />
+          Wishing you a lovely day (^-^)
+        </p>
+      </div>
+    </div>
+
+    <div class="center">
+      <!-- You can place an illustration here or leave it empty -->
+    </div>
+
+    <div class="right">
+      <p>📍 Kuwait</p>
+      <p id="time">--:--</p>
+      <p>🌤️ 32°C</p>
+      <p id="date">Loading...</p>
+      <button onclick="redirectToProfile()">Login →</button>
+    </div>
+  </div>
+
+  <script>
+    function updateTimeAndDate() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const date = now.toLocaleDateString('en-GB', {
+        weekday: 'long',
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+
+      document.getElementById("time").textContent = time;
+      document.getElementById("date").textContent = date;
+    }
+
+    function redirectToProfile() {
+      window.location.href = "page2.html";
+    }
+
+    updateTimeAndDate();
+    setInterval(updateTimeAndDate, 10000);
+  </script>
+</body>
+</html>

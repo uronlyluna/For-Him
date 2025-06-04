@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wishes Letter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #f3faff, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .letter-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem 3rem;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding-top: 3rem;
+    }
+
+    .sidebar button {
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: white;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    .sidebar button:hover {
+      background: #f0faff;
+    }
+
+    .letter {
+      flex: 1;
+      max-width: 600px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      position: relative;
+    }
+
+    .letter::before {
+      content: "♡";
+      font-size: 2rem;
+      position: absolute;
+      top: -30px;
+      left: -10px;
+    }
+
+    .space {
+      height: 2rem;
+    }
+
+    .emoji {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 2rem;
+        height: auto;
+      }
+
+      .letter-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 0;
+      }
+
+      .letter {
+        text-align: center;
+      }
+
+      .letter::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter-container">
+    <!-- Buttons on the left -->
+    <div class="sidebar">
+      <button onclick="progil()">Profile</button>
+      <button onclick="wishes()">Wishes</button>
+      <button onclick="add()">Additional</button>
+    </div>
+
+    <!-- Cute letter content -->
+    <div class="letter">
+      Dear Pookie, <span class="emoji">🩵</span>
+      <div class="space"></div>
+      I have some dreams in my heart that I hope to share with you someday…  
+      ✨ Travel under togetherto japan 🌸  
+      ✨ Bake together something sweet 🍰  
+      ✨ Lie down in the grass and stargaze 🌌  
+      ✨ Create beautiful memories, one smile at a time 😊  
+      <div class="space"></div>
+      These little wishes are just pieces of how much I cherish you ♡  
+      With love,  
+      <br />
+      — Luna <span class="emoji">(＾▽＾)</span>
+    </div>
+  </div>
+  <script>
+    function profile() {
+      window.location.href = "page2.html";
+    }
+    function wishes() {
+      window.location.href = "page3.html";
+    }
+    function add() {
+      window.location.href = "page4.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #d8e9f0, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem;
+      border-radius: 16px;
+      background-color: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .profile-sidebar button {
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: white;
+      border: 2px solid #ccc;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    .profile-sidebar button:hover {
+      background: #f0faff;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      border: 3px solid #ccc;
+      border-radius: 50% / 60%; /* Oval shape */
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-details h2 {
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+
+    .profile-details p {
+      font-size: 1.1rem;
+      margin: 0.4rem 0;
+    }
+
+    .profile-details u {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        height: auto;
+        padding: 2rem;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-sidebar {
+        flex-direction: row;
+      }
+
+      .profile-details p {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <!-- Buttons on the far left -->
+    <div class="profile-sidebar">
+      <button onclick="profile()">Profile</button>
+      <button onclick="wishes()">Wishes</button>
+      <button onclick="add()">Additional</button>
+    </div>
+
+    <!-- Image in the center -->
+    <img src="him.jpg" alt="Profile" class="profile-img" />
+
+    <!-- Info text on the right -->
+    <div class="profile-details">
+      <h2>Profile =.★</h2>
+      <hr />
+      <p><u>name</u> Aziz</p>
+      <p><u>birthdate</u> 04 June 2025</p>
+      <p><u>hobbies</u> Gaming, Anime, Sleeping</p>
+      <p><u>loves</u> Me~, PS5, eating</p>
+      <p style="text-align:center;">♡</p>
+    </div>
+  </div>
+  <script>
+    function profile() {
+      window.location.href = "page2.html";
+    }
+    function wishes() {
+      window.location.href = "page3.html";
+    }
+    function add() {
+      window.location.href = "page4.html";
+    }
+  </script>
+</body>
+</html>
